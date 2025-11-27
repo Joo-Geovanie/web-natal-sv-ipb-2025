@@ -1,0 +1,2137 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Natal Sekolah Vokasi IPB 2026 - Sukacita Besar Telah Datang</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap");
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --primary: #8b2635;
+        --secondary: #c9a961;
+        --cream: #fff8f0;
+        --dark: #2d1b1f;
+        --light: #faf3e8;
+        --gold: #d4af37;
+        --red-dark: #5d1a25;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background: var(--cream);
+        color: var(--dark);
+        overflow-x: hidden;
+      }
+
+      /* Snowfall Animation */
+      .snowflake {
+        position: fixed;
+        top: -10px;
+        color: white;
+        font-size: 1em;
+        opacity: 0.8;
+        pointer-events: none;
+        z-index: 9999;
+        animation: fall linear infinite;
+      }
+
+      @keyframes fall {
+        to {
+          transform: translateY(100vh);
+        }
+      }
+
+      /* Navbar */
+      nav {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        padding: 1.5rem 0;
+      }
+
+      nav.scrolled {
+        background: rgba(139, 38, 53, 0.98);
+        backdrop-filter: blur(20px);
+        padding: 1rem 0;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+      }
+
+      .nav-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        font-family: "Playfair Display", serif;
+        font-size: 1.6rem;
+        font-weight: 800;
+        color: white;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 0.7rem;
+        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+      }
+
+      .logo-icon {
+        font-size: 2rem;
+        animation: rotate 4s ease-in-out infinite;
+      }
+
+      @keyframes rotate {
+        0%,
+        100% {
+          transform: rotate(0deg);
+        }
+        50% {
+          transform: rotate(10deg);
+        }
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 2.5rem;
+        list-style: none;
+        align-items: center;
+      }
+
+      .nav-links a {
+        color: white;
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 0.95rem;
+        position: relative;
+        transition: all 0.3s ease;
+        text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      }
+
+      .nav-links a::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--gold);
+        transition: width 0.3s ease;
+      }
+
+      .nav-links a:hover {
+        color: var(--gold);
+        transform: translateY(-2px);
+      }
+
+      .nav-links a:hover::after {
+        width: 100%;
+      }
+
+      .mobile-menu {
+        display: none;
+        color: white;
+        font-size: 1.8rem;
+        cursor: pointer;
+      }
+
+      /* Hero Section */
+      .hero {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(
+          135deg,
+          #8b2635 0%,
+          #5d1a25 50%,
+          #3d0e15 100%
+        );
+        position: relative;
+        overflow: hidden;
+        padding: 8rem 2rem 4rem;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: radial-gradient(
+            circle at 20% 50%,
+            rgba(201, 169, 97, 0.1) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 80% 50%,
+            rgba(212, 175, 55, 0.1) 0%,
+            transparent 50%
+          );
+        animation: pulse 8s ease-in-out infinite;
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 0.5;
+        }
+        50% {
+          opacity: 1;
+        }
+      }
+
+      .hero-decorations {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+      }
+
+      .hero-star {
+        position: absolute;
+        color: var(--gold);
+        font-size: 2rem;
+        opacity: 0.3;
+        animation: twinkle 3s ease-in-out infinite;
+      }
+
+      @keyframes twinkle {
+        0%,
+        100% {
+          opacity: 0.3;
+          transform: scale(1);
+        }
+        50% {
+          opacity: 0.8;
+          transform: scale(1.2);
+        }
+      }
+
+      .hero-content {
+        text-align: center;
+        color: white;
+        max-width: 1000px;
+        position: relative;
+        z-index: 1;
+        animation: fadeInUp 1s ease-out;
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(40px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .hero-badge {
+        display: inline-block;
+        background: rgba(212, 175, 55, 0.2);
+        backdrop-filter: blur(10px);
+        padding: 0.8rem 2rem;
+        border-radius: 50px;
+        font-size: 0.95rem;
+        margin-bottom: 2rem;
+        border: 2px solid rgba(212, 175, 55, 0.4);
+        font-weight: 600;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        box-shadow: 0 5px 20px rgba(212, 175, 55, 0.3);
+      }
+
+      .hero h1 {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(3rem, 8vw, 5.5rem);
+        font-weight: 800;
+        margin-bottom: 1.5rem;
+        line-height: 1.1;
+        text-shadow: 0 5px 30px rgba(0, 0, 0, 0.5);
+        letter-spacing: -1px;
+      }
+
+      .hero h1 .highlight {
+        color: var(--gold);
+        display: block;
+        margin-top: 0.5rem;
+      }
+
+      .hero-verse {
+        font-size: clamp(1.3rem, 3vw, 2rem);
+        color: var(--gold);
+        margin-bottom: 1rem;
+        font-style: italic;
+        font-weight: 300;
+        text-shadow: 0 3px 15px rgba(0, 0, 0, 0.4);
+      }
+
+      .hero-reference {
+        font-size: 1.1rem;
+        opacity: 0.9;
+        margin-bottom: 3rem;
+        font-weight: 300;
+      }
+
+      .event-details {
+        display: flex;
+        justify-content: center;
+        gap: 3rem;
+        margin: 3rem 0;
+        flex-wrap: wrap;
+      }
+
+      .detail-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.8rem;
+        padding: 1.5rem 2rem;
+        background: rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(10px);
+        border-radius: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        transition: all 0.3s ease;
+      }
+
+      .detail-item:hover {
+        background: rgba(255, 255, 255, 0.15);
+        transform: translateY(-5px);
+      }
+
+      .detail-icon {
+        font-size: 2.5rem;
+      }
+
+      .detail-text {
+        font-size: 1.1rem;
+        font-weight: 500;
+      }
+
+      .cta-buttons {
+        display: flex;
+        gap: 1.5rem;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-top: 3rem;
+      }
+
+      .btn {
+        padding: 1.2rem 3rem;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        border: none;
+        cursor: pointer;
+        font-size: 1.05rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.7rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      .btn-primary {
+        background: linear-gradient(135deg, var(--gold) 0%, #f4d03f 100%);
+        color: var(--dark);
+        box-shadow: 0 15px 40px rgba(212, 175, 55, 0.4);
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-5px) scale(1.05);
+        box-shadow: 0 20px 50px rgba(212, 175, 55, 0.6);
+      }
+
+      .btn-secondary {
+        background: rgba(255, 255, 255, 0.1);
+        color: white;
+        border: 2px solid rgba(255, 255, 255, 0.4);
+        backdrop-filter: blur(10px);
+      }
+
+      .btn-secondary:hover {
+        background: rgba(255, 255, 255, 0.2);
+        border-color: var(--gold);
+        transform: translateY(-5px);
+      }
+
+      /* Countdown */
+      .countdown {
+        background: linear-gradient(to bottom, #faf3e8 0%, white 100%);
+        padding: 6rem 2rem;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .countdown::before {
+        content: "🎄";
+        position: absolute;
+        font-size: 20rem;
+        opacity: 0.03;
+        top: -5rem;
+        right: -5rem;
+        transform: rotate(-15deg);
+      }
+
+      .section-title {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(2.5rem, 5vw, 3.5rem);
+        text-align: center;
+        margin-bottom: 1rem;
+        color: var(--primary);
+        font-weight: 700;
+      }
+
+      .section-subtitle {
+        text-align: center;
+        color: #666;
+        font-size: 1.1rem;
+        margin-bottom: 4rem;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .countdown-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        gap: 2rem;
+        max-width: 900px;
+        margin: 0 auto;
+      }
+
+      .countdown-item {
+        background: white;
+        border-radius: 25px;
+        padding: 3rem 2rem;
+        text-align: center;
+        box-shadow: 0 15px 50px rgba(139, 38, 53, 0.1);
+        transition: all 0.3s ease;
+        border: 3px solid transparent;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .countdown-item::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 5px;
+        background: linear-gradient(90deg, var(--primary), var(--gold));
+      }
+
+      .countdown-item:hover {
+        transform: translateY(-10px) scale(1.05);
+        border-color: var(--gold);
+        box-shadow: 0 20px 60px rgba(139, 38, 53, 0.2);
+      }
+
+      .countdown-number {
+        font-size: 4rem;
+        font-weight: 800;
+        background: linear-gradient(135deg, var(--primary), var(--gold));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 0.5rem;
+        font-family: "Playfair Display", serif;
+      }
+
+      .countdown-label {
+        font-size: 1rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: #666;
+        font-weight: 600;
+      }
+
+      /* Quick Nav */
+      .quick-nav {
+        padding: 6rem 2rem;
+        background: white;
+      }
+
+      .container {
+        max-width: 1400px;
+        margin: 0 auto;
+      }
+
+      .cards-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2.5rem;
+        margin-top: 4rem;
+      }
+
+      .card {
+        background: linear-gradient(135deg, #faf3e8 0%, white 100%);
+        border-radius: 30px;
+        padding: 3.5rem 2.5rem;
+        text-align: center;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        cursor: pointer;
+        border: 2px solid rgba(139, 38, 53, 0.1);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(212, 175, 55, 0.1),
+          transparent
+        );
+        transition: left 0.5s ease;
+      }
+
+      .card:hover::before {
+        left: 100%;
+      }
+
+      .card:hover {
+        transform: translateY(-15px);
+        box-shadow: 0 25px 70px rgba(139, 38, 53, 0.2);
+        border-color: var(--gold);
+      }
+
+      .card-icon {
+        font-size: 4rem;
+        margin-bottom: 1.5rem;
+        display: block;
+        transition: transform 0.3s ease;
+      }
+
+      .card:hover .card-icon {
+        transform: scale(1.2) rotate(5deg);
+      }
+
+      .card-title {
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: var(--primary);
+        margin-bottom: 0.8rem;
+      }
+
+      .card-desc {
+        font-size: 1rem;
+        color: #666;
+        line-height: 1.6;
+      }
+
+      /* About Section */
+      .about {
+        padding: 6rem 2rem;
+        background: linear-gradient(135deg, #faf3e8 0%, #fff8f0 100%);
+        position: relative;
+      }
+
+      .about::after {
+        content: "⭐";
+        position: absolute;
+        font-size: 15rem;
+        opacity: 0.03;
+        bottom: -3rem;
+        left: -3rem;
+      }
+
+      .about-content {
+        max-width: 1300px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 5rem;
+        align-items: center;
+      }
+
+      .about-text h2 {
+        font-family: "Playfair Display", serif;
+        font-size: 3rem;
+        color: var(--primary);
+        margin-bottom: 2rem;
+        font-weight: 700;
+      }
+
+      .about-text p {
+        font-size: 1.15rem;
+        line-height: 1.9;
+        color: #555;
+        margin-bottom: 1.8rem;
+      }
+
+      .about-visual {
+        background: linear-gradient(
+          135deg,
+          var(--primary) 0%,
+          var(--red-dark) 100%
+        );
+        border-radius: 40px;
+        padding: 4rem 3rem;
+        color: white;
+        text-align: center;
+        box-shadow: 0 25px 70px rgba(139, 38, 53, 0.3);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .about-visual::before {
+        content: "";
+        position: absolute;
+        width: 200px;
+        height: 200px;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 50%;
+        top: -50px;
+        right: -50px;
+      }
+
+      .about-visual .verse {
+        font-size: 2.3rem;
+        font-style: italic;
+        margin-bottom: 1.5rem;
+        font-family: "Playfair Display", serif;
+        line-height: 1.4;
+        position: relative;
+        z-index: 1;
+      }
+
+      .about-visual .reference {
+        font-size: 1.3rem;
+        opacity: 0.9;
+        font-weight: 300;
+      }
+
+      /* Rundown */
+      .rundown {
+        padding: 6rem 2rem;
+        background: white;
+      }
+
+      .timeline {
+        max-width: 1000px;
+        margin: 4rem auto 0;
+        position: relative;
+      }
+
+      .timeline::before {
+        content: "";
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 4px;
+        height: 100%;
+        background: linear-gradient(to bottom, var(--primary), var(--gold));
+      }
+
+      .timeline-item {
+        display: grid;
+        grid-template-columns: 1fr 80px 1fr;
+        gap: 2rem;
+        margin-bottom: 3rem;
+        align-items: center;
+      }
+
+      .timeline-content {
+        background: var(--light);
+        padding: 2rem 2.5rem;
+        border-radius: 25px;
+        border-left: 5px solid var(--gold);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        transition: all 0.3s ease;
+      }
+
+      .timeline-content:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+      }
+
+      .timeline-time {
+        font-weight: 700;
+        color: var(--primary);
+        font-size: 1.1rem;
+        text-align: center;
+        background: white;
+        padding: 1rem;
+        border-radius: 15px;
+        border: 3px solid var(--gold);
+        z-index: 2;
+        position: relative;
+      }
+
+      .timeline-title {
+        font-size: 1.3rem;
+        font-weight: 700;
+        color: var(--primary);
+        margin-bottom: 0.5rem;
+      }
+
+      .timeline-desc {
+        color: #666;
+        line-height: 1.6;
+      }
+
+      .timeline-item:nth-child(odd) .timeline-content:first-child {
+        text-align: right;
+      }
+
+      .timeline-item:nth-child(even) .timeline-content:last-child {
+        text-align: left;
+      }
+
+      /* Gallery */
+      .gallery {
+        padding: 6rem 2rem;
+        background: linear-gradient(to bottom, var(--light), white);
+      }
+
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 2.5rem;
+        margin-top: 4rem;
+      }
+
+      .gallery-item {
+        aspect-ratio: 4/3;
+        border-radius: 30px;
+        overflow: hidden;
+        position: relative;
+        cursor: pointer;
+        background: linear-gradient(135deg, var(--primary), var(--gold));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 6rem;
+        transition: all 0.4s ease;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+      }
+
+      .gallery-item:hover {
+        transform: scale(1.05) rotate(2deg);
+        box-shadow: 0 25px 60px rgba(0, 0, 0, 0.2);
+      }
+
+      .gallery-item::after {
+        content: "Segera Hadir";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        padding: 2rem;
+        color: white;
+        font-size: 1.5rem;
+        font-weight: 600;
+      }
+
+      .gallery-item:hover::after {
+        opacity: 1;
+      }
+
+      .gallery-note {
+        text-align: center;
+        margin-top: 3rem;
+        color: #999;
+        font-style: italic;
+        font-size: 1.1rem;
+      }
+
+      /* Register */
+      .register {
+        padding: 6rem 2rem;
+        background: white;
+      }
+
+      .register-card {
+        max-width: 800px;
+        margin: 4rem auto 0;
+        background: linear-gradient(135deg, #fff8f0, white);
+        border-radius: 40px;
+        padding: 4.5rem 4rem;
+        box-shadow: 0 25px 70px rgba(0, 0, 0, 0.12);
+        text-align: center;
+        border: 4px solid var(--gold);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .register-card::before {
+        content: "🎁";
+        position: absolute;
+        font-size: 15rem;
+        opacity: 0.05;
+        top: -3rem;
+        right: -3rem;
+        transform: rotate(-15deg);
+      }
+
+      .register-icon {
+        font-size: 5rem;
+        margin-bottom: 2rem;
+        animation: bounce 2s ease-in-out infinite;
+      }
+
+      @keyframes bounce {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+
+      .register-card h3 {
+        font-size: 2.5rem;
+        color: var(--primary);
+        margin-bottom: 1.5rem;
+        font-family: "Playfair Display", serif;
+        font-weight: 700;
+      }
+
+      .register-card p {
+        font-size: 1.15rem;
+        color: #666;
+        margin-bottom: 2.5rem;
+        line-height: 1.8;
+      }
+
+      .qr-code {
+        background: white;
+        padding: 2.5rem;
+        border-radius: 25px;
+        margin: 2.5rem 0;
+        display: inline-block;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .qr-placeholder {
+        width: 220px;
+        height: 220px;
+        background: linear-gradient(135deg, var(--light), white);
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 5rem;
+        margin: 0 auto;
+        border: 3px dashed var(--secondary);
+      }
+
+      .notes {
+        background: linear-gradient(135deg, #fff9e6, #fffbf0);
+        border-left: 5px solid var(--gold);
+        padding: 2rem 2.5rem;
+        border-radius: 20px;
+        text-align: left;
+        margin-top: 3rem;
+        box-shadow: 0 5px 20px rgba(212, 175, 55, 0.15);
+      }
+
+      .notes h4 {
+        color: var(--primary);
+        margin-bottom: 1.5rem;
+        font-size: 1.3rem;
+        font-weight: 700;
+      }
+
+      .notes ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      .notes li {
+        padding: 0.8rem 0;
+        padding-left: 2rem;
+        position: relative;
+        color: #555;
+        line-height: 1.7;
+      }
+
+      .notes li::before {
+        content: "✦";
+        position: absolute;
+        left: 0;
+        color: var(--gold);
+        font-size: 1.2rem;
+      }
+
+      /* Wish Tree */
+      .wish-tree {
+        padding: 6rem 2rem;
+        background: linear-gradient(135deg, #e8f4f8 0%, #f8e8ec 100%);
+        position: relative;
+      }
+
+      .wish-tree::before {
+        content: "🎄";
+        position: absolute;
+        font-size: 25rem;
+        opacity: 0.03;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      .wish-form {
+        max-width: 700px;
+        margin: 3rem auto;
+        background: white;
+        padding: 3.5rem;
+        border-radius: 30px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+        border: 2px solid var(--gold);
+      }
+
+      .form-group {
+        margin-bottom: 2rem;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 0.8rem;
+        font-weight: 600;
+        color: var(--primary);
+        font-size: 1.1rem;
+      }
+
+      .form-group input,
+      .form-group textarea {
+        width: 100%;
+        padding: 1.2rem 1.5rem;
+        border: 2px solid var(--light);
+        border-radius: 15px;
+        font-family: "Poppins", sans-serif;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        background: var(--cream);
+      }
+
+      .form-group input:focus,
+      .form-group textarea:focus {
+        outline: none;
+        border-color: var(--gold);
+        background: white;
+        box-shadow: 0 5px 20px rgba(212, 175, 55, 0.2);
+      }
+
+      .form-group textarea {
+        resize: vertical;
+        min-height: 140px;
+      }
+
+      .wishes-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        gap: 2.5rem;
+        margin-top: 4rem;
+        max-width: 1400px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .wish-card {
+        background: white;
+        padding: 2.5rem;
+        border-radius: 25px;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        border-left: 5px solid var(--gold);
+        animation: slideIn 0.5s ease-out;
+        transition: all 0.3s ease;
+      }
+
+      .wish-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+      }
+
+      @keyframes slideIn {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .wish-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1.2rem;
+        padding-bottom: 1rem;
+        border-bottom: 2px dashed var(--light);
+      }
+
+      .wish-name {
+        font-weight: 700;
+        color: var(--primary);
+        font-size: 1.1rem;
+      }
+
+      .wish-date {
+        font-size: 0.85rem;
+        color: #999;
+      }
+
+      .wish-message {
+        color: #555;
+        line-height: 1.8;
+        font-size: 1rem;
+        font-style: italic;
+      }
+
+      .empty-wishes {
+        text-align: center;
+        padding: 4rem 2rem;
+        color: #999;
+        font-size: 1.2rem;
+      }
+
+      /* Testimonials */
+      .testimonials {
+        padding: 6rem 2rem;
+        background: white;
+      }
+
+      .testimonial-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 3rem;
+        margin-top: 4rem;
+      }
+
+      .testimonial-card {
+        background: linear-gradient(135deg, var(--light), white);
+        padding: 3rem 2.5rem;
+        border-radius: 30px;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+        transition: all 0.3s ease;
+        border-top: 5px solid var(--gold);
+      }
+
+      .testimonial-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+      }
+
+      .testimonial-header {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .testimonial-avatar {
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--primary), var(--gold));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+        color: white;
+        font-weight: 700;
+      }
+
+      .testimonial-info h4 {
+        color: var(--primary);
+        font-size: 1.2rem;
+        font-weight: 700;
+        margin-bottom: 0.3rem;
+      }
+
+      .testimonial-info p {
+        color: #999;
+        font-size: 0.9rem;
+      }
+
+      .testimonial-quote {
+        color: #555;
+        font-size: 1.05rem;
+        line-height: 1.8;
+        font-style: italic;
+        position: relative;
+        padding-left: 1.5rem;
+        border-left: 3px solid var(--gold);
+      }
+
+      /* Playlist */
+      .playlist {
+        padding: 6rem 2rem;
+        background: linear-gradient(135deg, #2d1b1f 0%, #1a0f12 100%);
+        color: white;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .playlist::before {
+        content: "🎵";
+        position: absolute;
+        font-size: 20rem;
+        opacity: 0.03;
+        top: -3rem;
+        right: -3rem;
+        animation: float 6s ease-in-out infinite;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0) rotate(0deg);
+        }
+        50% {
+          transform: translateY(-20px) rotate(5deg);
+        }
+      }
+
+      .playlist-content {
+        max-width: 900px;
+        margin: 0 auto;
+        text-align: center;
+      }
+
+      .playlist-content .section-title {
+        color: white;
+      }
+
+      .playlist-content .section-subtitle {
+        color: rgba(255, 255, 255, 0.8);
+      }
+
+      .spotify-embed {
+        margin: 3rem auto;
+        background: rgba(255, 255, 255, 0.05);
+        padding: 2rem;
+        border-radius: 30px;
+        backdrop-filter: blur(10px);
+        border: 2px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .spotify-placeholder {
+        width: 100%;
+        height: 380px;
+        background: linear-gradient(
+          135deg,
+          rgba(212, 175, 55, 0.1),
+          rgba(139, 38, 53, 0.1)
+        );
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+
+      .spotify-placeholder span {
+        font-size: 5rem;
+      }
+
+      .spotify-placeholder p {
+        font-size: 1.2rem;
+        opacity: 0.8;
+      }
+
+      /* Map */
+      .map-section {
+        padding: 6rem 2rem;
+        background: var(--light);
+      }
+
+      .map-container {
+        max-width: 1200px;
+        margin: 4rem auto 0;
+        background: white;
+        border-radius: 30px;
+        overflow: hidden;
+        box-shadow: 0 25px 70px rgba(0, 0, 0, 0.12);
+      }
+
+      .map-embed {
+        width: 100%;
+        height: 500px;
+        background: linear-gradient(135deg, var(--light), white);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 5rem;
+      }
+
+      .map-details {
+        padding: 3.5rem;
+      }
+
+      .map-details h3 {
+        font-family: "Playfair Display", serif;
+        font-size: 2rem;
+        color: var(--primary);
+        margin-bottom: 1.5rem;
+      }
+
+      .map-details .address {
+        font-size: 1.15rem;
+        color: #555;
+        margin-bottom: 2rem;
+        line-height: 1.8;
+      }
+
+      .directions {
+        background: var(--light);
+        padding: 2rem;
+        border-radius: 20px;
+        border-left: 5px solid var(--gold);
+      }
+
+      .directions h4 {
+        color: var(--primary);
+        margin-bottom: 1rem;
+        font-size: 1.2rem;
+      }
+
+      .directions ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      .directions li {
+        padding: 0.7rem 0;
+        padding-left: 2rem;
+        position: relative;
+        color: #666;
+      }
+
+      .directions li::before {
+        content: "→";
+        position: absolute;
+        left: 0;
+        color: var(--gold);
+        font-weight: 700;
+      }
+
+      /* Contact */
+      .contact {
+        padding: 6rem 2rem;
+        background: white;
+      }
+
+      .contact-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 3rem;
+        margin-top: 4rem;
+        max-width: 1200px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .contact-card {
+        background: linear-gradient(135deg, var(--light), white);
+        padding: 3.5rem 3rem;
+        border-radius: 30px;
+        text-align: center;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        border: 2px solid transparent;
+      }
+
+      .contact-card:hover {
+        transform: translateY(-10px);
+        border-color: var(--gold);
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+      }
+
+      .contact-icon {
+        font-size: 4rem;
+        margin-bottom: 1.5rem;
+        display: block;
+      }
+
+      .contact-card h3 {
+        color: var(--primary);
+        font-size: 1.5rem;
+        margin-bottom: 0.8rem;
+        font-weight: 700;
+      }
+
+      .contact-card p {
+        color: #666;
+        font-size: 1.05rem;
+        margin-bottom: 2rem;
+      }
+
+      .contact-card .btn {
+        width: 100%;
+        justify-content: center;
+      }
+
+      /* Footer */
+      footer {
+        background: linear-gradient(
+          135deg,
+          var(--dark) 0%,
+          var(--red-dark) 100%
+        );
+        color: white;
+        padding: 4rem 2rem 2rem;
+        text-align: center;
+      }
+
+      .footer-content {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .footer-logo {
+        font-family: "Playfair Display", serif;
+        font-size: 2rem;
+        font-weight: 800;
+        margin-bottom: 1rem;
+      }
+
+      .footer-social {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        margin: 2rem 0;
+      }
+
+      .footer-social a {
+        color: white;
+        font-size: 2rem;
+        transition: all 0.3s ease;
+      }
+
+      .footer-social a:hover {
+        color: var(--gold);
+        transform: translateY(-5px);
+      }
+
+      .footer-links {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        margin: 2rem 0;
+        flex-wrap: wrap;
+      }
+
+      .footer-links a {
+        color: rgba(255, 255, 255, 0.8);
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      .footer-links a:hover {
+        color: var(--gold);
+      }
+
+      .footer-bottom {
+        margin-top: 3rem;
+        padding-top: 2rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 0.95rem;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .nav-links {
+          display: none;
+        }
+        .mobile-menu {
+          display: block;
+        }
+        .hero h1 {
+          font-size: 2.5rem;
+        }
+        .event-details {
+          flex-direction: column;
+          gap: 1.5rem;
+        }
+        .about-content {
+          grid-template-columns: 1fr;
+          gap: 3rem;
+        }
+        .timeline::before {
+          left: 30px;
+        }
+        .timeline-item {
+          grid-template-columns: 80px 1fr;
+          gap: 1rem;
+        }
+        .timeline-item .timeline-content:last-child {
+          grid-column: 2;
+        }
+        .timeline-item .timeline-content:first-child {
+          display: none;
+        }
+        .cards-grid,
+        .gallery-grid,
+        .testimonial-grid,
+        .contact-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Snowfall Effect -->
+    <script>
+      function createSnowflake() {
+        const snowflake = document.createElement("div");
+        snowflake.classList.add("snowflake");
+        snowflake.innerHTML = "❄";
+        snowflake.style.left = Math.random() * 100 + "vw";
+        snowflake.style.animationDuration = Math.random() * 3 + 2 + "s";
+        snowflake.style.opacity = Math.random();
+        document.body.appendChild(snowflake);
+        setTimeout(() => snowflake.remove(), 5000);
+      }
+      setInterval(createSnowflake, 200);
+    </script>
+
+    <!-- Navbar -->
+    <nav id="navbar">
+      <div class="nav-container">
+        <a href="#home" class="logo">
+          <span class="logo-icon">🎄</span>
+          <span>Natal SV IPB 2026</span>
+        </a>
+        <ul class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">Tentang</a></li>
+          <li><a href="#rundown">Rundown</a></li>
+          <li><a href="#gallery">Galeri</a></li>
+          <li><a href="#register">Daftar</a></li>
+          <li><a href="#wish-tree">Wish Tree</a></li>
+          <li><a href="#contact">Kontak</a></li>
+        </ul>
+        <div class="mobile-menu">☰</div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+      <div class="hero-decorations">
+        <span class="hero-star" style="top: 10%; left: 10%">⭐</span>
+        <span class="hero-star" style="top: 20%; right: 15%">✨</span>
+        <span class="hero-star" style="bottom: 30%; left: 20%">⭐</span>
+        <span class="hero-star" style="bottom: 20%; right: 10%">✨</span>
+      </div>
+      <div class="hero-content">
+        <div class="hero-badge">Natal Sekolah Vokasi IPB</div>
+        <h1>
+          Sukacita Besar
+          <span class="highlight">Telah Datang</span>
+        </h1>
+        <p class="hero-verse">
+          "Aku memberitakan kepadamu kesukaan besar untuk seluruh bangsa"
+        </p>
+        <p class="hero-reference">— Lukas 2:10</p>
+        <div class="event-details">
+          <div class="detail-item">
+            <span class="detail-icon">📅</span>
+            <span class="detail-text">Sabtu, 24 Januari 2026</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-icon">🕘</span>
+            <span class="detail-text">09.00 - 14.00 WIB</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-icon">📍</span>
+            <span class="detail-text">GKI Bogor Baru<br />BPK Penabur</span>
+          </div>
+        </div>
+        <div class="cta-buttons">
+          <a href="#register" class="btn btn-primary">
+            <span>📝</span>
+            Daftar Sekarang
+          </a>
+          <a href="#contact" class="btn btn-secondary">
+            <span>💬</span>
+            Hubungi Kami
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Countdown -->
+    <section class="countdown" id="countdown">
+      <div class="container">
+        <h2 class="section-title">Hitung Mundur</h2>
+        <p class="section-subtitle">
+          Waktu terus berjalan menuju perayaan sukacita bersama
+        </p>
+        <div class="countdown-grid">
+          <div class="countdown-item">
+            <div class="countdown-number" id="days">00</div>
+            <div class="countdown-label">Hari</div>
+          </div>
+          <div class="countdown-item">
+            <div class="countdown-number" id="hours">00</div>
+            <div class="countdown-label">Jam</div>
+          </div>
+          <div class="countdown-item">
+            <div class="countdown-number" id="minutes">00</div>
+            <div class="countdown-label">Menit</div>
+          </div>
+          <div class="countdown-item">
+            <div class="countdown-number" id="seconds">00</div>
+            <div class="countdown-label">Detik</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick Nav -->
+    <!-- <section class="quick-nav">
+      <div class="container">
+        <h2 class="section-title">Jelajahi Acara</h2>
+        <p class="section-subtitle">
+          Temukan berbagai informasi dan fitur menarik
+        </p>
+        <div class="cards-grid">
+          <a href="#about" class="card">
+            <span class="card-icon">📖</span>
+            <h3 class="card-title">Tentang Acara</h3>
+            <p class="card-desc">
+              Pelajari lebih lanjut tentang makna dan tujuan perayaan
+            </p>
+          </a>
+          <a href="#gallery" class="card">
+            <span class="card-icon">📸</span>
+            <h3 class="card-title">Galeri</h3>
+            <p class="card-desc">Lihat momen-momen spesial tahun sebelumnya</p>
+          </a>
+          <a href="#register" class="card">
+            <span class="card-icon">✍️</span>
+            <h3 class="card-title">Pendaftaran</h3>
+            <p class="card-desc">
+              Daftar sekarang dan jadilah bagian dari kebersamaan
+            </p>
+          </a>
+          <a href="#wish-tree" class="card">
+            <span class="card-icon">🎄</span>
+            <h3 class="card-title">Wish Tree</h3>
+            <p class="card-desc">
+              Bagikan doa dan harapanmu di pohon harapan digital
+            </p>
+          </a>
+          <a href="#contact" class="card">
+            <span class="card-icon">📞</span>
+            <h3 class="card-title">Kontak</h3>
+            <p class="card-desc">Hubungi kami untuk informasi lebih lanjut</p>
+          </a>
+        </div>
+      </div>
+    </section> -->
+
+    <!-- About -->
+    <section class="about" id="about">
+      <div class="about-content">
+        <div class="about-text">
+          <h2>Tentang Natal Sekolah Vokasi IPB</h2>
+          <p>
+            Perayaan Natal Sekolah Vokasi IPB adalah momen spesial yang diadakan
+            setiap tahun untuk mempererat kebersamaan, merayakan kasih Kristus,
+            dan berbagi sukacita dengan seluruh keluarga besar Sekolah Vokasi
+            IPB.
+          </p>
+          <p>
+            Acara ini bukan hanya sekadar perayaan, tetapi juga kesempatan bagi
+            kita untuk merenungkan makna kelahiran Yesus Kristus dan bagaimana
+            nilai-nilai kasih, damai, dan pengharapan dapat kita wujudkan dalam
+            kehidupan sehari-hari.
+          </p>
+          <p>
+            Dengan tema <strong>"Sukacita Besar Telah Datang"</strong>, kami
+            mengajak seluruh mahasiswa, dosen, dan keluarga besar SV IPB untuk
+            bersama-sama merayakan anugerah terbesar yang telah diberikan kepada
+            dunia.
+          </p>
+        </div>
+        <div class="about-visual">
+          <p class="verse">
+            "Aku memberitakan kepadamu kesukaan besar untuk seluruh bangsa"
+          </p>
+          <p class="reference">Lukas 2:10</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Rundown -->
+    <section class="rundown" id="rundown">
+      <div class="container">
+        <h2 class="section-title">Rundown Acara</h2>
+        <p class="section-subtitle">
+          Jadwal lengkap perayaan Natal Sekolah Vokasi IPB 2026
+        </p>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <h4 class="timeline-title">Registrasi Peserta</h4>
+              <p class="timeline-desc">
+                Pendaftaran ulang dan pengambilan kit peserta
+              </p>
+            </div>
+            <div class="timeline-time">08.30 - 09.00</div>
+            <div class="timeline-content"></div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-content"></div>
+            <div class="timeline-time">09.00 - 09.15</div>
+            <div class="timeline-content">
+              <h4 class="timeline-title">Pembukaan</h4>
+              <p class="timeline-desc">
+                Sambutan ketua panitia dan doa pembukaan
+              </p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <h4 class="timeline-title">Ibadah Natal</h4>
+              <p class="timeline-desc">
+                Ibadah syukur bersama dengan renungan Natal
+              </p>
+            </div>
+            <div class="timeline-time">09.15 - 10.30</div>
+            <div class="timeline-content"></div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-content"></div>
+            <div class="timeline-time">10.30 - 11.00</div>
+            <div class="timeline-content">
+              <h4 class="timeline-title">Penampilan Paduan Suara</h4>
+              <p class="timeline-desc">
+                Persembahan lagu-lagu Natal dari paduan suara SV IPB
+              </p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <h4 class="timeline-title">Games & Doorprize</h4>
+              <p class="timeline-desc">Permainan seru dengan hadiah menarik</p>
+            </div>
+            <div class="timeline-time">11.00 - 12.00</div>
+            <div class="timeline-content"></div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-content"></div>
+            <div class="timeline-time">12.00 - 13.00</div>
+            <div class="timeline-content">
+              <h4 class="timeline-title">Makan Siang Bersama</h4>
+              <p class="timeline-desc">Fellowship dan makan siang</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <h4 class="timeline-title">Foto Bersama & Penutupan</h4>
+              <p class="timeline-desc">Sesi foto dan penutupan acara</p>
+            </div>
+            <div class="timeline-time">13.00 - 14.00</div>
+            <div class="timeline-content"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery -->
+    <section class="gallery" id="gallery">
+      <div class="container">
+        <h2 class="section-title">Galeri</h2>
+        <p class="section-subtitle">
+          Momen indah dari perayaan Natal tahun-tahun sebelumnya
+        </p>
+        <div class="gallery-grid">
+          <div class="gallery-item">
+            <img
+              src="https://images.unsplash.com/photo-1512389142860-9c449e58a543?w=600&h=400&fit=crop"
+              alt="Natal 1"
+              style="width: 100%; height: 100%; object-fit: cover"
+            />
+          </div>
+          <div class="gallery-item">
+            <img
+              src="https://images.unsplash.com/photo-1543589077-47d81606c1bf?w=600&h=400&fit=crop"
+              alt="Natal 2"
+              style="width: 100%; height: 100%; object-fit: cover"
+            />
+          </div>
+          <div class="gallery-item">
+            <img
+              src="https://images.unsplash.com/photo-1482517967863-00e15c9b44be?w=600&h=400&fit=crop"
+              alt="Natal 3"
+              style="width: 100%; height: 100%; object-fit: cover"
+            />
+          </div>
+          <div class="gallery-item">
+            <img
+              src="https://images.unsplash.com/photo-1544279958-1f0b18c71b1d?w=600&h=400&fit=crop"
+              alt="Natal 4"
+              style="width: 100%; height: 100%; object-fit: cover"
+            />
+          </div>
+          <div class="gallery-item">
+            <img
+              src="https://images.unsplash.com/photo-1576106842854-b03ea02b39d5?w=600&h=400&fit=crop"
+              alt="Natal 5"
+              style="width: 100%; height: 100%; object-fit: cover"
+            />
+          </div>
+          <div class="gallery-item">
+            <img
+              src="https://images.unsplash.com/photo-1545558014-8692077e9b5c?w=600&h=400&fit=crop"
+              alt="Natal 6"
+              style="width: 100%; height: 100%; object-fit: cover"
+            />
+          </div>
+        </div>
+        <p class="gallery-note">
+          *Galeri akan diperbarui dengan foto-foto acara setelah perayaan
+        </p>
+      </div>
+    </section>
+
+    <!-- Register -->
+    <section class="register" id="register">
+      <div class="container">
+        <h2 class="section-title">Pendaftaran</h2>
+        <p class="section-subtitle">
+          Mari bergabung dalam perayaan sukacita bersama
+        </p>
+        <div class="register-card">
+          <div class="register-icon">📝</div>
+          <h3>Daftar Sekarang</h3>
+          <p>
+            Pendaftaran peserta Natal Sekolah Vokasi IPB dilakukan melalui
+            Google Form. Silakan isi formulir dengan lengkap dan benar.
+          </p>
+          <a
+            href="https://forms.google.com/LINK-GOOGLE-FORM-ANDA"
+            target="_blank"
+            class="btn btn-primary"
+          >
+            <span>📋</span>
+            Isi Form Pendaftaran
+          </a>
+          <div class="qr-code">
+            <img
+              src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=https://forms.google.com/LINK-FORM-ANDA"
+              alt="QR Code Pendaftaran"
+              style="width: 220px; height: 220px; border-radius: 15px"
+            />
+          </div>
+          <p style="font-size: 0.95rem; color: #999; margin-top: 1rem">
+            Scan QR Code untuk akses cepat ke form pendaftaran
+          </p>
+          <div class="notes">
+            <h4>⚠️ Catatan Penting</h4>
+            <ul>
+              <li>Pendaftaran ditutup tanggal 20 Januari 2026</li>
+              <li>Dress code: Rapi & Sopan (Merah/Putih/Emas)</li>
+              <li>Peserta wajib hadir 30 menit sebelum acara</li>
+              <li>Bawa kartu identitas (KTM/KTP)</li>
+              <li>Patuhi protokol kesehatan yang berlaku</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Wish Tree -->
+    <section class="wish-tree" id="wish-tree">
+      <div class="container">
+        <h2 class="section-title">🎄 Pohon Harapan Digital</h2>
+        <p class="section-subtitle">
+          Bagikan doa, harapan, dan ucapan Natal Anda
+        </p>
+        <div class="wish-form">
+          <form id="wishForm">
+            <div class="form-group">
+              <label for="wishName">Nama Anda</label>
+              <input
+                type="text"
+                id="wishName"
+                placeholder="Masukkan nama Anda..."
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="wishMessage">Pesan / Doa / Harapan</label>
+              <textarea
+                id="wishMessage"
+                placeholder="Tuliskan doa atau harapan Anda untuk Natal ini..."
+                required
+              ></textarea>
+            </div>
+            <button
+              type="submit"
+              class="btn btn-primary"
+              style="width: 100%; justify-content: center"
+            >
+              <span>✨</span>
+              Kirim Harapan
+            </button>
+          </form>
+        </div>
+        <div class="wishes-container" id="wishesContainer">
+          <!-- Wishes akan muncul di sini -->
+        </div>
+        <div class="empty-wishes" id="emptyWishes">
+          Belum ada harapan yang dibagikan. Jadilah yang pertama! 🌟
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials" id="testimonials">
+      <div class="container">
+        <h2 class="section-title">Testimoni Tahun Lalu</h2>
+        <p class="section-subtitle">
+          Apa kata mereka tentang perayaan Natal SV IPB
+        </p>
+        <div class="testimonial-grid">
+          <div class="testimonial-card">
+            <div class="testimonial-header">
+              <div class="testimonial-avatar">A</div>
+              <div class="testimonial-info">
+                <h4>Anisa Putri</h4>
+                <p>Mahasiswa D3 Teknologi Industri Benih</p>
+              </div>
+            </div>
+            <p class="testimonial-quote">
+              "Acara Natal SV IPB tahun lalu sangat berkesan! Suasananya hangat
+              dan penuh kebersamaan. Sempat deg-degan pas games tapi seru
+              banget!"
+            </p>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-header">
+              <div class="testimonial-avatar">B</div>
+              <div class="testimonial-info">
+                <h4>Budi Santoso</h4>
+                <p>Mahasiswa D4 Manajemen Agribisnis</p>
+              </div>
+            </div>
+            <p class="testimonial-quote">
+              "Paduan suaranya keren banget! Renungan Natalnya juga menyentuh
+              hati. Pokoknya worth it untuk hadir!"
+            </p>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-header">
+              <div class="testimonial-avatar">C</div>
+              <div class="testimonial-info">
+                <h4>Clara Angeline</h4>
+                <p>Mahasiswa D3 Teknologi Produksi Ternak</p>
+              </div>
+            </div>
+            <p class="testimonial-quote">
+              "Seneng banget bisa kumpul bareng temen-temen dan dosen. Acaranya
+              nggak membosankan, malah bikin pengen datang lagi tahun ini!"
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Playlist -->
+    <section class="playlist" id="playlist">
+      <div class="playlist-content">
+        <h2 class="section-title">🎵 Playlist Natal</h2>
+        <p class="section-subtitle">
+          Nikmati alunan lagu-lagu Natal untuk menemani hari Anda
+        </p>
+        <div class="spotify-embed">
+          <iframe
+            style="border-radius: 20px"
+            src="https://open.spotify.com/embed/playlist/3oxaXCM8yo5qZrGkhsOAEG?utm_source=generator"
+            width="100%"
+            height="380"
+            frameborder="0"
+            allowfullscreen=""
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy"
+          >
+          </iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- Map -->
+    <section class="map-section" id="map">
+      <div class="container">
+        <h2 class="section-title">Lokasi Acara</h2>
+        <p class="section-subtitle">Temukan kami di sini</p>
+        <div class="map-container">
+          <iframe 
+  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.252059891234!2d106.83073287499505!3d-6.60988939340123!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x9de7698d67ca2acf!2sGKI%20Bogor%20Baru%20BPK%20Penabur!5e0!3m2!1sid!2sid!4v1234567890123!5m2!1sid!2sid" 
+  width="100%" 
+  height="500" 
+  style="border:0; border-radius: 0;" 
+  allowfullscreen="" 
+  loading="lazy" 
+  referrerpolicy="no-referrer-when-downgrade">
+</iframe>
+          </iframe>
+          <div class="map-details">
+            <h3>📍 GKI Bogor Baru - BPK Penabur</h3>
+            <p class="address">
+              Jl. Pakuan, Tegallega, Kec. Bogor Tengah<br />
+              Kota Bogor, Jawa Barat 16143
+            </p>
+            <div class="directions">
+              <h4>Petunjuk Arah</h4>
+              <ul>
+                <li>
+                  Dari kampus IPB Dramaga: 30 menit via Jalan Raya Dramaga
+                </li>
+                <li>Dari Terminal Baranangsiang: 15 menit via angkot 03</li>
+                <li>Dari Stasiun Bogor: 20 menit via ojek online</li>
+                <li>Parkir tersedia di area gereja</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact" id="contact">
+      <div class="container">
+        <h2 class="section-title">Hubungi Kami</h2>
+        <p class="section-subtitle">
+          Ada pertanyaan? Jangan ragu untuk menghubungi kami
+        </p>
+        <div class="contact-grid">
+          <div class="contact-card">
+            <span class="contact-icon">💬</span>
+            <h3>WhatsApp</h3>
+            <p>Ketua Panitia</p>
+            <a
+              href="https://wa.me/6281234567890"
+              target="_blank"
+              class="btn btn-primary"
+            >
+              <span>📱</span>
+              Hubungi di WhatsApp
+            </a>
+          </div>
+          <div class="contact-card">
+            <span class="contact-icon">📷</span>
+            <h3>Instagram</h3>
+            <p>@natalsvipb</p>
+            <a
+              href="https://instagram.com/natalsvipb"
+              target="_blank"
+              class="btn btn-primary"
+            >
+              <span>📸</span>
+              Follow Instagram
+            </a>
+          </div>
+          <div class="contact-card">
+            <span class="contact-icon">✉️</span>
+            <h3>Email</h3>
+            <p>natalsvipb@gmail.com</p>
+            <a href="mailto:natalsvipb@gmail.com" class="btn btn-primary">
+              <span>📧</span>
+              Kirim Email
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-content">
+        <div class="footer-logo">🎄 Natal SV IPB 2026</div>
+        <p style="margin: 1rem 0; opacity: 0.9">Sukacita Besar Telah Datang</p>
+        <div class="footer-social">
+          <a href="https://instagram.com/natalsvipb" target="_blank">📷</a>
+          <a href="https://wa.me/6281234567890" target="_blank">💬</a>
+          <a href="mailto:natalsvipb@gmail.com">✉️</a>
+        </div>
+        <div class="footer-links">
+          <a href="#home">Home</a>
+          <a href="#about">Tentang</a>
+          <a href="#gallery">Galeri</a>
+          <a href="#register">Daftar</a>
+          <a href="#contact">Kontak</a>
+        </div>
+        <div class="footer-bottom">
+          <p>Made with ❤️ by Panitia Natal Sekolah Vokasi IPB</p>
+          <p style="margin-top: 0.5rem">
+            &copy; 2026 Natal Sekolah Vokasi IPB. All rights reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Navbar scroll effect
+      window.addEventListener("scroll", () => {
+        const nav = document.getElementById("navbar");
+        if (window.scrollY > 100) {
+          nav.classList.add("scrolled");
+        } else {
+          nav.classList.remove("scrolled");
+        }
+      });
+
+      // Countdown Timer
+      const countdownDate = new Date("2026-01-24T09:00:00").getTime();
+
+      function updateCountdown() {
+        const now = new Date().getTime();
+        const distance = countdownDate - now;
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor(
+          (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+        );
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById("days").innerText = String(days).padStart(
+          2,
+          "0"
+        );
+        document.getElementById("hours").innerText = String(hours).padStart(
+          2,
+          "0"
+        );
+        document.getElementById("minutes").innerText = String(minutes).padStart(
+          2,
+          "0"
+        );
+        document.getElementById("seconds").innerText = String(seconds).padStart(
+          2,
+          "0"
+        );
+
+        if (distance < 0) {
+          clearInterval(countdownInterval);
+          document.querySelector(".countdown-grid").innerHTML =
+            '<h3 style="text-align:center; color: var(--primary); font-size: 2rem;">🎉 Acara Sedang Berlangsung! 🎉</h3>';
+        }
+      }
+
+      const countdownInterval = setInterval(updateCountdown, 1000);
+      updateCountdown();
+
+      // Wish Tree functionality
+      const wishes = [];
+
+      document.getElementById("wishForm").addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        const name = document.getElementById("wishName").value;
+        const message = document.getElementById("wishMessage").value;
+
+        const wish = {
+          name: name,
+          message: message,
+          date: new Date().toLocaleDateString("id-ID", {
+            day: "numeric",
+            month: "long",
+            year: "numeric",
+          }),
+        };
+
+        wishes.push(wish);
+        displayWishes();
+
+        // Reset form
+        document.getElementById("wishForm").reset();
+
+        // Scroll to wishes
+        document.getElementById("wishesContainer").scrollIntoView({
+          behavior: "smooth",
+          block: "nearest",
+        });
+      });
+
+      function displayWishes() {
+        const container = document.getElementById("wishesContainer");
+        const emptyMsg = document.getElementById("emptyWishes");
+
+        if (wishes.length === 0) {
+          container.style.display = "none";
+          emptyMsg.style.display = "block";
+        } else {
+          container.style.display = "grid";
+          emptyMsg.style.display = "none";
+          container.innerHTML = wishes
+            .map(
+              (wish) => `
+<div class="wish-card">
+<div class="wish-header">
+<span class="wish-name">✨ ${wish.name}</span>
+<span class="wish-date">${wish.date}</span>
+</div>
+<p class="wish-message">"${wish.message}"</p>
+</div>
+`
+            )
+            .reverse()
+            .join("");
+        }
+      }
+
+      displayWishes();
+
+      // Smooth scroll for all anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
+        });
+      });
+
+      // Mobile menu toggle (basic)
+      document.querySelector(".mobile-menu").addEventListener("click", () => {
+        alert("Menu mobile dalam pengembangan. Silakan scroll untuk navigasi.");
+      });
+    </script>
+  </body>
+</html>
