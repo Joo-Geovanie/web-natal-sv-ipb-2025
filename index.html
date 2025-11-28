@@ -1931,7 +1931,6 @@
     </section>
 
     <!-- Wish Tree -->
-    <!-- Wish Tree -->
     <section class="wish-tree" id="wish-tree">
       <div class="container">
         <h2 class="section-title">
@@ -1976,9 +1975,7 @@
         <div class="wishes-container" id="wishesContainer">
           <!-- Wishes akan muncul di sini -->
         </div>
-        <div class="empty-wishes" id="emptyWishes">
-          Belum ada harapan yang dibagikan. Jadilah yang pertama! 🌟
-        </div>
+        <div class="empty-wishes" id="emptyWishes">Memuat harapan... 🌟</div>
       </div>
     </section>
 
@@ -2331,65 +2328,192 @@
       updateCountdown();
 
       // Wish Tree functionality
-      const wishes = [];
+      // ============================================
+      // WISH TREE WITH GOOGLE SHEETS
+      // ============================================
 
-      document.getElementById("wishForm").addEventListener("submit", (e) => {
-        e.preventDefault();
+      const FORM_ID = "1BfQqq4q1b2Uqgic7MXSw2c2aE4JkfyYpGJQqP6yJ95M";
+      const ENTRY_NAME = "entry.956456023";
+      const ENTRY_MESSAGE = "entry.539959860";
+      const SHEET_CSV_URL =
+        "https://docs.google.com/spreadsheets/d/e/2PACX-1vTeXqNHJUn5XowcIiWXG5xPN0diLaWO4RzoyrtuANMlUV09G5Ac8uQdLzNcCzepL9ooVZ3MzcD7MgTa/pub?output=csv";
 
-        const name = document.getElementById("wishName").value;
-        const message = document.getElementById("wishMessage").value;
+      const FORM_ACTION = `https://docs.google.com/forms/d/e/${FORM_ID}/formResponse`;
 
-        const wish = {
-          name: name,
-          message: message,
-          date: new Date().toLocaleDateString("id-ID", {
-            day: "numeric",
-            month: "long",
-            year: "numeric",
-          }),
-        };
+      // Load wishes from Google Sheets
+      async function loadWishes() {
+        const container = document.getElementById("wishesContainer");
+        const emptyMsg = document.getElementById("emptyWishes");
 
-        wishes.push(wish);
-        displayWishes();
+        try {
+          const response = await fetch(SHEET_CSV_URL);
+          const csvText = await response.text();
 
-        // Reset form
-        document.getElementById("wishForm").reset();
+          // Parse CSV (skip header row)
+          const lines = csvText.split("\n").slice(1);
+          const wishes = [];
 
-        // Scroll to wishes
-        document.getElementById("wishesContainer").scrollIntoView({
-          behavior: "smooth",
-          block: "nearest",
-        });
-      });
+          for (let line of lines) {
+            if (!line.trim()) continue;
 
-      function displayWishes() {
+            // Parse CSV with proper quote handling
+            const columns = [];
+            let current = "";
+            let inQuotes = false;
+
+            for (let i = 0; i < line.length; i++) {
+              const char = line[i];
+              const nextChar = line[i + 1];
+
+              if (char === '"' && nextChar === '"') {
+                current += '"';
+                i++; // Skip next quote
+              } else if (char === '"') {
+                inQuotes = !inQuotes;
+              } else if (char === "," && !inQuotes) {
+                columns.push(current.trim());
+                current = "";
+              } else {
+                current += char;
+              }
+            }
+            columns.push(current.trim()); // Push last column
+
+            if (columns.length >= 3) {
+              const timestamp = columns[0];
+              const name = columns[1];
+              const message = columns[2];
+
+              wishes.push({
+                name: name,
+                message: message,
+                date: new Date(timestamp).toLocaleDateString("id-ID", {
+                  day: "numeric",
+                  month: "long",
+                  year: "numeric",
+                }),
+              });
+            }
+          }
+
+          displayWishes(wishes);
+        } catch (error) {
+          console.error("Error loading wishes:", error);
+          emptyMsg.innerHTML =
+            "Gagal memuat harapan. Silakan refresh halaman. 🔄";
+        }
+      }
+
+      function displayWishes(wishes) {
         const container = document.getElementById("wishesContainer");
         const emptyMsg = document.getElementById("emptyWishes");
 
         if (wishes.length === 0) {
           container.style.display = "none";
           emptyMsg.style.display = "block";
+          emptyMsg.innerHTML =
+            "Belum ada harapan yang dibagikan. Jadilah yang pertama! 🌟";
         } else {
           container.style.display = "grid";
           emptyMsg.style.display = "none";
           container.innerHTML = wishes
+            .reverse()
             .map(
               (wish) => `
-<div class="wish-card">
-<div class="wish-header">
-<span class="wish-name">✨ ${wish.name}</span>
-<span class="wish-date">${wish.date}</span>
-</div>
-<p class="wish-message">"${wish.message}"</p>
-</div>
-`
+        <div class="wish-card">
+          <div class="wish-header">
+            <span class="wish-name">✨ ${wish.name}</span>
+            <span class="wish-date">${wish.date}</span>
+          </div>
+          <p class="wish-message">"${wish.message}"</p>
+        </div>
+      `
             )
-            .reverse()
             .join("");
         }
       }
 
-      displayWishes();
+      // Submit form to Google Forms
+      document
+        .getElementById("wishForm")
+        .addEventListener("submit", async (e) => {
+          e.preventDefault();
+
+          const submitBtn = e.target.querySelector('button[type="submit"]');
+          const originalText = submitBtn.innerHTML;
+
+          // Disable button and show loading
+          submitBtn.disabled = true;
+          submitBtn.innerHTML = "<span>⏳</span> Mengirim...";
+
+          const name = document.getElementById("wishName").value;
+          const message = document.getElementById("wishMessage").value;
+
+          const formData = new FormData();
+          formData.append(ENTRY_NAME, name);
+          formData.append(ENTRY_MESSAGE, message);
+
+          try {
+            // Submit to Google Form (no-cors mode)
+            await fetch(FORM_ACTION, {
+              method: "POST",
+              body: formData,
+              mode: "no-cors",
+            });
+
+            // Reset form
+            document.getElementById("wishForm").reset();
+
+            // Show success message
+            submitBtn.innerHTML = "<span>✅</span> Terkirim!";
+
+            setTimeout(() => {
+              submitBtn.disabled = false;
+              submitBtn.innerHTML = originalText;
+            }, 2000);
+
+            // Show alert
+            alert(
+              "✨ Terima kasih! Harapan Anda telah terkirim.\n\nHarapan akan muncul dalam beberapa detik."
+            );
+
+            // Reload wishes after 3 seconds
+            setTimeout(loadWishes, 3000);
+
+            // Scroll to wishes
+            setTimeout(() => {
+              document.getElementById("wishesContainer").scrollIntoView({
+                behavior: "smooth",
+                block: "nearest",
+              });
+            }, 500);
+          } catch (error) {
+            console.error("Error submitting wish:", error);
+            alert("❌ Gagal mengirim harapan. Silakan coba lagi.");
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = originalText;
+          }
+        });
+
+      // Load wishes on page load
+      loadWishes();
+
+      // Auto refresh every 30 seconds
+      setInterval(loadWishes, 30000);
+
+      // Smooth scroll for all anchor links (tetap ada)
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
+        });
+      });
 
       // Smooth scroll for all anchor links
       document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
