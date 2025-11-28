@@ -5,10 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Natal Sekolah Vokasi IPB 2026 - Sukacita Besar Telah Datang</title>
     <!-- Bootstrap CSS -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-<!-- Bootstrap Icons -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
- <!-- Bootstrap JS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+    />
+    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
     <style>
@@ -61,115 +67,120 @@
 
       /* Navbar */
       /* Navbar */
-nav {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 1000;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  padding: 1.5rem 0;
-  background: transparent;
-}
+      nav {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        padding: 1.5rem 0;
+        background: transparent;
+      }
 
-nav.scrolled {
-  background: rgba(139, 38, 53, 0.98) !important;
-  backdrop-filter: blur(20px);
-  padding: 1rem 0;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-}
+      nav.scrolled {
+        background: rgba(139, 38, 53, 0.98) !important;
+        backdrop-filter: blur(20px);
+        padding: 1rem 0;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+      }
 
-.nav-container {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 0 2rem;
-}
+      .nav-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
 
-.logo {
-  font-family: "Playfair Display", serif;
-  font-size: 1.6rem;
-  font-weight: 800;
-  color: white;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  gap: 0.7rem;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-}
+      .logo {
+        font-family: "Playfair Display", serif;
+        font-size: 1.6rem;
+        font-weight: 800;
+        color: white;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 0.7rem;
+        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+      }
 
-.logo-icon {
-  font-size: 2rem;
-  animation: rotate 4s ease-in-out infinite;
-}
+      .logo-icon {
+        font-size: 2rem;
+        animation: rotate 4s ease-in-out infinite;
+      }
 
-@keyframes rotate {
-  0%, 100% { transform: rotate(0deg); }
-  50% { transform: rotate(10deg); }
-}
+      @keyframes rotate {
+        0%,
+        100% {
+          transform: rotate(0deg);
+        }
+        50% {
+          transform: rotate(10deg);
+        }
+      }
 
-.navbar-toggler {
-  border: 2px solid rgba(255, 255, 255, 0.5);
-  padding: 0.5rem 0.75rem;
-}
+      .navbar-toggler {
+        border: 2px solid rgba(255, 255, 255, 0.5);
+        padding: 0.5rem 0.75rem;
+      }
 
-.navbar-toggler-icon {
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-}
+      .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+      }
 
-.nav-links {
-  gap: 1.5rem;
-  list-style: none;
-}
+      .nav-links {
+        gap: 1.5rem;
+        list-style: none;
+      }
 
-.nav-links a {
-  color: white;
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 0.95rem;
-  position: relative;
-  transition: all 0.3s ease;
-  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-}
+      .nav-links a {
+        color: white;
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 0.95rem;
+        position: relative;
+        transition: all 0.3s ease;
+        text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      }
 
-.nav-links a::after {
-  content: "";
-  position: absolute;
-  bottom: -5px;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: var(--gold);
-  transition: width 0.3s ease;
-}
+      .nav-links a::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--gold);
+        transition: width 0.3s ease;
+      }
 
-.nav-links a:hover {
-  color: var(--gold);
-  transform: translateY(-2px);
-}
+      .nav-links a:hover {
+        color: var(--gold);
+        transform: translateY(-2px);
+      }
 
-.nav-links a:hover::after {
-  width: 100%;
-}
+      .nav-links a:hover::after {
+        width: 100%;
+      }
 
-@media (max-width: 991px) {
-  .navbar-collapse {
-    background: rgba(139, 38, 53, 0.95);
-    padding: 1.5rem;
-    border-radius: 15px;
-    margin-top: 1rem;
-  }
-  
-  .nav-links {
-    gap: 0 !important;
-  }
-  
-  .nav-item {
-    padding: 0.5rem 0;
-  }
-}
+      @media (max-width: 991px) {
+        .navbar-collapse {
+          background: rgba(139, 38, 53, 0.95);
+          padding: 1.5rem;
+          border-radius: 15px;
+          margin-top: 1rem;
+        }
 
-.mobile-menu {
-  display: none;
-}
+        .nav-links {
+          gap: 0 !important;
+        }
+
+        .nav-item {
+          padding: 0.5rem 0;
+        }
+      }
+
+      .mobile-menu {
+        display: none;
+      }
 
       /* Hero Section */
       .hero {
@@ -727,10 +738,10 @@ nav.scrolled {
       }
 
       /* Gallery */
-     .gallery {
-  padding: 6rem 2rem;
-  background: linear-gradient(to bottom, var(--light), white);
-}
+      .gallery {
+        padding: 6rem 2rem;
+        background: linear-gradient(to bottom, var(--light), white);
+      }
 
       .gallery-grid {
         display: grid;
@@ -739,26 +750,26 @@ nav.scrolled {
         margin-top: 4rem;
       }
 
-     .gallery-item {
-  aspect-ratio: 4/3;
-  border-radius: 30px;
-  overflow: hidden;
-  position: relative;
-  cursor: pointer;
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
-  transition: all 0.4s ease;
-}
+      .gallery-item {
+        aspect-ratio: 4/3;
+        border-radius: 30px;
+        overflow: hidden;
+        position: relative;
+        cursor: pointer;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        transition: all 0.4s ease;
+      }
 
-.gallery-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
+      .gallery-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
 
-.gallery-item:hover {
-  transform: scale(1.05);
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.2);
-}
+      .gallery-item:hover {
+        transform: scale(1.05);
+        box-shadow: 0 25px 60px rgba(0, 0, 0, 0.2);
+      }
 
       .gallery-item::after {
         content: "Segera Hadir";
@@ -933,10 +944,14 @@ nav.scrolled {
         border-radius: 30px;
         box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
         border: 2px solid var(--gold);
+        position: relative;
+        z-index: 10;
       }
 
       .form-group {
         margin-bottom: 2rem;
+        position: relative;
+        z-index: 10;
       }
 
       .form-group label {
@@ -945,6 +960,7 @@ nav.scrolled {
         font-weight: 600;
         color: var(--primary);
         font-size: 1.1rem;
+        pointer-events: none;
       }
 
       .form-group input,
@@ -956,7 +972,14 @@ nav.scrolled {
         font-family: "Poppins", sans-serif;
         font-size: 1rem;
         transition: all 0.3s ease;
-        background: var(--cream);
+        background: white;
+        display: block;
+        position: relative;
+        z-index: 10;
+        cursor: text;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
       }
 
       .form-group input:focus,
@@ -965,6 +988,7 @@ nav.scrolled {
         border-color: var(--gold);
         background: white;
         box-shadow: 0 5px 20px rgba(212, 175, 55, 0.2);
+        z-index: 20;
       }
 
       .form-group textarea {
@@ -1320,6 +1344,73 @@ nav.scrolled {
         justify-content: center;
       }
 
+      /* Sponsors & Media Partners */
+      .sponsors {
+        padding: 6rem 2rem;
+        background: linear-gradient(135deg, #faf3e8 0%, white 100%);
+        position: relative;
+      }
+
+      .sponsor-category {
+        margin-bottom: 3rem;
+      }
+
+      .sponsor-title {
+        text-align: center;
+        font-size: 1.8rem;
+        color: var(--primary);
+        font-weight: 700;
+        margin-bottom: 2rem;
+        font-family: "Playfair Display", serif;
+      }
+
+      .sponsor-card,
+      .medpart-card {
+        background: white;
+        padding: 2rem;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 150px;
+        border: 2px solid var(--light);
+      }
+
+      .sponsor-card:hover,
+      .medpart-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+        border-color: var(--gold);
+      }
+
+      .sponsor-logo {
+        max-width: 100%;
+        max-height: 100px;
+        object-fit: contain;
+        filter: grayscale(20%);
+        transition: filter 0.3s ease;
+      }
+
+      .sponsor-card:hover .sponsor-logo,
+      .medpart-card:hover .medpart-logo {
+        filter: grayscale(0%);
+      }
+
+      .medpart-card {
+        height: 100px;
+        padding: 1.5rem;
+      }
+
+      .medpart-logo {
+        max-width: 100%;
+        max-height: 60px;
+        object-fit: contain;
+        filter: grayscale(20%);
+        transition: filter 0.3s ease;
+      }
+
       /* Footer */
       footer {
         background: linear-gradient(
@@ -1446,28 +1537,51 @@ nav.scrolled {
     </script>
 
     <!-- Navbar -->
-<nav class="navbar navbar-expand-lg fixed-top" id="navbar">
-  <div class="container-fluid nav-container">
-    <a href="#home" class="navbar-brand logo">
-      <span class="logo-icon">🎄</span>
-      <span>Natal SV IPB 2026</span>
-    </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-auto nav-links">
-        <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
-        <li class="nav-item"><a href="#about" class="nav-link">Tentang</a></li>
-        <li class="nav-item"><a href="#rundown" class="nav-link">Rundown</a></li>
-        <li class="nav-item"><a href="#gallery" class="nav-link">Galeri</a></li>
-        <li class="nav-item"><a href="#register" class="nav-link">Daftar</a></li>
-        <li class="nav-item"><a href="#wish-tree" class="nav-link">Wish Tree</a></li>
-        <li class="nav-item"><a href="#contact" class="nav-link">Kontak</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
+    <nav class="navbar navbar-expand-lg fixed-top" id="navbar">
+      <div class="container-fluid nav-container">
+        <a href="#home" class="navbar-brand logo">
+          <span class="logo-icon"
+            ><img src="images/Logo-Natal.png" width="50px"
+          /></span>
+          <span>Natal SV IPB 2026</span>
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto nav-links">
+            <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
+            <li class="nav-item">
+              <a href="#about" class="nav-link">Tentang</a>
+            </li>
+            <li class="nav-item">
+              <a href="#rundown" class="nav-link">Rundown</a>
+            </li>
+            <li class="nav-item">
+              <a href="#gallery" class="nav-link">Galeri</a>
+            </li>
+            <li class="nav-item">
+              <a href="#register" class="nav-link">Daftar</a>
+            </li>
+            <li class="nav-item">
+              <a href="#wish-tree" class="nav-link">Wish Tree</a>
+            </li>
+            <li class="nav-item"><a href="#map" class="nav-link">Lokasi</a></li>
+            <li class="nav-item">
+              <a href="#contact" class="nav-link">Kontak</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
 
     <!-- Hero Section -->
     <section class="hero" id="home">
@@ -1628,58 +1742,58 @@ nav.scrolled {
         <div class="timeline">
           <div class="timeline-item">
             <div class="timeline-content">
-              <h4 class="timeline-title">Registrasi Peserta</h4>
+              <h4 class="timeline-title">Open Gate</h4>
               <p class="timeline-desc">
-                Pendaftaran ulang dan pengambilan kit peserta
+                Registrasi peserta dan pengambilan kit peserta
               </p>
             </div>
-            <div class="timeline-time">08.30 - 09.00</div>
+            <div class="timeline-time">09.30 - 10.00</div>
             <div class="timeline-content"></div>
           </div>
           <div class="timeline-item">
             <div class="timeline-content"></div>
-            <div class="timeline-time">09.00 - 09.15</div>
-            <div class="timeline-content">
-              <h4 class="timeline-title">Pembukaan</h4>
-              <p class="timeline-desc">
-                Sambutan ketua panitia dan doa pembukaan
-              </p>
-            </div>
-          </div>
-          <div class="timeline-item">
+            <div class="timeline-time">10.00 - 12.00</div>
             <div class="timeline-content">
               <h4 class="timeline-title">Ibadah Natal</h4>
               <p class="timeline-desc">
                 Ibadah syukur bersama dengan renungan Natal
               </p>
             </div>
-            <div class="timeline-time">09.15 - 10.30</div>
-            <div class="timeline-content"></div>
           </div>
           <div class="timeline-item">
-            <div class="timeline-content"></div>
-            <div class="timeline-time">10.30 - 11.00</div>
             <div class="timeline-content">
-              <h4 class="timeline-title">Penampilan Paduan Suara</h4>
+              <h4 class="timeline-title">Makan Siang</h4>
               <p class="timeline-desc">
-                Persembahan lagu-lagu Natal dari paduan suara SV IPB
+                Santap siang bersama dengan hidangan spesial Natal
               </p>
             </div>
+            <div class="timeline-time">12.00 - 12.30</div>
+            <div class="timeline-content"></div>
           </div>
           <div class="timeline-item">
+            <div class="timeline-content"></div>
+            <div class="timeline-time">12.30 - 13.00</div>
             <div class="timeline-content">
-              <h4 class="timeline-title">Games & Doorprize</h4>
-              <p class="timeline-desc">Permainan seru dengan hadiah menarik</p>
+              <h4 class="timeline-title">Pembukaan Perayaan Natal</h4>
+              <p class="timeline-desc">Sambutan dan doa pembukaan acara</p>
             </div>
-            <div class="timeline-time">11.00 - 12.00</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <h4 class="timeline-title">Games & Performance</h4>
+              <p class="timeline-desc">
+                Serangkaian permainan seru dan penampilan spesial dari pelayan
+              </p>
+            </div>
+            <div class="timeline-time">13.00 - 13.15</div>
             <div class="timeline-content"></div>
           </div>
           <div class="timeline-item">
             <div class="timeline-content"></div>
-            <div class="timeline-time">12.00 - 13.00</div>
+            <div class="timeline-time">13.20 - 13.35</div>
             <div class="timeline-content">
-              <h4 class="timeline-title">Makan Siang Bersama</h4>
-              <p class="timeline-desc">Fellowship dan makan siang</p>
+              <h4 class="timeline-title">Tukar Kado</h4>
+              <p class="timeline-desc">Kegiatan tukar kado antar peserta</p>
             </div>
           </div>
           <div class="timeline-item">
@@ -1687,7 +1801,7 @@ nav.scrolled {
               <h4 class="timeline-title">Foto Bersama & Penutupan</h4>
               <p class="timeline-desc">Sesi foto dan penutupan acara</p>
             </div>
-            <div class="timeline-time">13.00 - 14.00</div>
+            <div class="timeline-time">13.50 - 14.00</div>
             <div class="timeline-content"></div>
           </div>
         </div>
@@ -1695,50 +1809,74 @@ nav.scrolled {
     </section>
 
     <!-- Gallery -->
-<!-- Gallery -->
-<section class="gallery" id="gallery">
-  <div class="container">
-    <h2 class="section-title">Galeri</h2>
-    <p class="section-subtitle">
-      Momen indah dari perayaan Natal tahun-tahun sebelumnya
-    </p>
-    <div class="row g-4 mt-4">
-      <div class="col-12 col-md-6 col-lg-4">
-        <div class="gallery-item">
-          <img src="https://images.unsplash.com/photo-1512389142860-9c449e58a543?w=600&h=400&fit=crop" alt="Natal 1" class="img-fluid">
+    <!-- Gallery -->
+    <section class="gallery" id="gallery">
+      <div class="container">
+        <h2 class="section-title">Galeri</h2>
+        <p class="section-subtitle">
+          Momen indah dari perayaan Natal tahun-tahun sebelumnya
+        </p>
+        <div class="row g-4 mt-4">
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="gallery-item">
+              <img
+                src="https://images.unsplash.com/photo-1512389142860-9c449e58a543?w=600&h=400&fit=crop"
+                alt="Natal 1"
+                class="img-fluid"
+              />
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="gallery-item">
+              <img
+                src="https://images.unsplash.com/photo-1543589077-47d81606c1bf?w=600&h=400&fit=crop"
+                alt="Natal 2"
+                class="img-fluid"
+              />
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="gallery-item">
+              <img
+                src="https://images.unsplash.com/photo-1482517967863-00e15c9b44be?w=600&h=400&fit=crop"
+                alt="Natal 3"
+                class="img-fluid"
+              />
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="gallery-item">
+              <img
+                src="https://images.unsplash.com/photo-1544279958-1f0b18c71b1d?w=600&h=400&fit=crop"
+                alt="Natal 4"
+                class="img-fluid"
+              />
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="gallery-item">
+              <img
+                src="https://images.unsplash.com/photo-1576106842854-b03ea02b39d5?w=600&h=400&fit=crop"
+                alt="Natal 5"
+                class="img-fluid"
+              />
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="gallery-item">
+              <img
+                src="https://images.unsplash.com/photo-1545558014-8692077e9b5c?w=600&h=400&fit=crop"
+                alt="Natal 6"
+                class="img-fluid"
+              />
+            </div>
+          </div>
         </div>
+        <p class="gallery-note mt-4">
+          *Galeri akan diperbarui dengan foto-foto acara setelah perayaan
+        </p>
       </div>
-      <div class="col-12 col-md-6 col-lg-4">
-        <div class="gallery-item">
-          <img src="https://images.unsplash.com/photo-1543589077-47d81606c1bf?w=600&h=400&fit=crop" alt="Natal 2" class="img-fluid">
-        </div>
-      </div>
-      <div class="col-12 col-md-6 col-lg-4">
-        <div class="gallery-item">
-          <img src="https://images.unsplash.com/photo-1482517967863-00e15c9b44be?w=600&h=400&fit=crop" alt="Natal 3" class="img-fluid">
-        </div>
-      </div>
-      <div class="col-12 col-md-6 col-lg-4">
-        <div class="gallery-item">
-          <img src="https://images.unsplash.com/photo-1544279958-1f0b18c71b1d?w=600&h=400&fit=crop" alt="Natal 4" class="img-fluid">
-        </div>
-      </div>
-      <div class="col-12 col-md-6 col-lg-4">
-        <div class="gallery-item">
-          <img src="https://images.unsplash.com/photo-1576106842854-b03ea02b39d5?w=600&h=400&fit=crop" alt="Natal 5" class="img-fluid">
-        </div>
-      </div>
-      <div class="col-12 col-md-6 col-lg-4">
-        <div class="gallery-item">
-          <img src="https://images.unsplash.com/photo-1545558014-8692077e9b5c?w=600&h=400&fit=crop" alt="Natal 6" class="img-fluid">
-        </div>
-      </div>
-    </div>
-    <p class="gallery-note mt-4">
-      *Galeri akan diperbarui dengan foto-foto acara setelah perayaan
-    </p>
-  </div>
-</section>
+    </section>
 
     <!-- Register -->
     <section class="register" id="register">
@@ -1748,7 +1886,13 @@ nav.scrolled {
           Mari bergabung dalam perayaan sukacita bersama
         </p>
         <div class="register-card">
-          <div class="register-icon">📝</div>
+          <div class="register-icon">
+            <img
+              src="images/Maskot-Natal.png"
+              alt="Maskot-Natal Pic"
+              width="300px"
+            />
+          </div>
           <h3>Daftar Sekarang</h3>
           <p>
             Pendaftaran peserta Natal Sekolah Vokasi IPB dilakukan melalui
@@ -1787,9 +1931,13 @@ nav.scrolled {
     </section>
 
     <!-- Wish Tree -->
+    <!-- Wish Tree -->
     <section class="wish-tree" id="wish-tree">
       <div class="container">
-        <h2 class="section-title">🎄 Pohon Harapan Digital</h2>
+        <h2 class="section-title">
+          <img src="images/Logo-Natal.png" alt="Logo-Natal" width="60px" />
+          Pohon Harapan Digital
+        </h2>
         <p class="section-subtitle">
           Bagikan doa, harapan, dan ucapan Natal Anda
         </p>
@@ -1800,6 +1948,7 @@ nav.scrolled {
               <input
                 type="text"
                 id="wishName"
+                class="form-control"
                 placeholder="Masukkan nama Anda..."
                 required
               />
@@ -1808,7 +1957,9 @@ nav.scrolled {
               <label for="wishMessage">Pesan / Doa / Harapan</label>
               <textarea
                 id="wishMessage"
+                class="form-control"
                 placeholder="Tuliskan doa atau harapan Anda untuk Natal ini..."
+                rows="5"
                 required
               ></textarea>
             </div>
@@ -1912,16 +2063,17 @@ nav.scrolled {
         <h2 class="section-title">Lokasi Acara</h2>
         <p class="section-subtitle">Temukan kami di sini</p>
         <div class="map-container">
-          <iframe 
-  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.252059891234!2d106.83073287499505!3d-6.60988939340123!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x9de7698d67ca2acf!2sGKI%20Bogor%20Baru%20BPK%20Penabur!5e0!3m2!1sid!2sid!4v1234567890123!5m2!1sid!2sid" 
-  width="100%" 
-  height="500" 
-  style="border:0; border-radius: 0;" 
-  allowfullscreen="" 
-  loading="lazy" 
-  referrerpolicy="no-referrer-when-downgrade">
-</iframe>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.252059891234!2d106.83073287499505!3d-6.60988939340123!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x9de7698d67ca2acf!2sGKI%20Bogor%20Baru%20BPK%20Penabur!5e0!3m2!1sid!2sid!4v1234567890123!5m2!1sid!2sid"
+            width="100%"
+            height="500"
+            style="border: 0; border-radius: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          >
           </iframe>
+
           <div class="map-details">
             <h3>📍 GKI Bogor Baru - BPK Penabur</h3>
             <p class="address">
@@ -1945,47 +2097,151 @@ nav.scrolled {
     </section>
 
     <!-- Contact -->
-<!-- Contact -->
-<section class="contact" id="contact">
-  <div class="container">
-    <h2 class="section-title">Hubungi Kami</h2>
-    <p class="section-subtitle">
-      Ada pertanyaan? Jangan ragu untuk menghubungi kami
-    </p>
-    <div class="row g-4 mt-4">
-      <div class="col-12 col-md-4">
-        <div class="contact-card">
-          <span class="contact-icon">💬</span>
-          <h3>WhatsApp</h3>
-          <p>Ketua Panitia</p>
-          <a href="https://wa.me/6281234567890" target="_blank" class="btn btn-primary w-100">
-            <span>📱</span> Hubungi di WhatsApp
-          </a>
+    <!-- Contact -->
+    <section class="contact" id="contact">
+      <div class="container">
+        <h2 class="section-title">Hubungi Kami</h2>
+        <p class="section-subtitle">
+          Ada pertanyaan? Jangan ragu untuk menghubungi kami
+        </p>
+        <div class="row g-4 mt-4">
+          <div class="col-12 col-md-4">
+            <div class="contact-card">
+              <span class="contact-icon"
+                ><img src="images/Logo-WA.png" alt="Logo-WA" width="70px"
+              /></span>
+              <h3>WhatsApp</h3>
+              <p>Ketua Panitia</p>
+              <a
+                href="https://wa.me/6281263515349"
+                target="_blank"
+                class="btn btn-primary w-100"
+              >
+                <span>📱</span> Hubungi di WhatsApp
+              </a>
+            </div>
+          </div>
+          <div class="col-12 col-md-4">
+            <div class="contact-card">
+              <span class="contact-icon"
+                ><img
+                  src="images/Logo-Instagram.png"
+                  alt="Logo-Instagram"
+                  width="60px"
+              /></span>
+              <h3>Instagram</h3>
+              <p>@natalsvipb</p>
+              <a
+                href="https://instagram.com/natalsvipb"
+                target="_blank"
+                class="btn btn-primary w-100"
+              >
+                <span
+                  ><img
+                    src="images/Logo-Instagram.png"
+                    alt="Logo-Instagram"
+                    width="20px"
+                /></span>
+                Follow Instagram
+              </a>
+            </div>
+          </div>
+          <div class="col-12 col-md-4">
+            <div class="contact-card">
+              <span class="contact-icon"
+                ><img src="images/Logo-Gmail.png" alt="Logo-Gmail" width="70px"
+              /></span>
+              <h3>Email</h3>
+              <p>natalsvipb@gmail.com</p>
+              <a
+                href="mailto:natalsvipb@gmail.com"
+                class="btn btn-primary w-100"
+              >
+                <span>📧</span> Kirim Email
+              </a>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="col-12 col-md-4">
-        <div class="contact-card">
-          <span class="contact-icon">📷</span>
-          <h3>Instagram</h3>
-          <p>@natalsvipb</p>
-          <a href="https://instagram.com/natalsvipb" target="_blank" class="btn btn-primary w-100">
-            <span>📸</span> Follow Instagram
-          </a>
+    </section>
+
+    <!-- Sponsors & Media Partners -->
+    <section class="sponsors" id="sponsors">
+      <div class="container">
+        <h2 class="section-title">Sponsor & Media Partner</h2>
+        <p class="section-subtitle">
+          Terima kasih atas dukungan dari para sponsor dan media partner kami
+        </p>
+
+        <!-- Sponsor -->
+        <div class="sponsor-category">
+          <h3 class="sponsor-title">✨ Sponsor Utama</h3>
+          <div class="row g-4 justify-content-center mt-4">
+            <div class="col-6 col-md-4 col-lg-3">
+              <div class="sponsor-card">
+                <img
+                  src="images/sponsor1.png"
+                  alt="Sponsor 1"
+                  class="sponsor-logo"
+                />
+              </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3">
+              <div class="sponsor-card">
+                <img
+                  src="images/sponsor2.png"
+                  alt="Sponsor 2"
+                  class="sponsor-logo"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Media Partner -->
+        <div class="sponsor-category mt-5">
+          <h3 class="sponsor-title">📢 Media Partner</h3>
+          <div class="row g-4 justify-content-center mt-4">
+            <div class="col-6 col-md-3 col-lg-2">
+              <div class="medpart-card">
+                <img
+                  src="images/medpart1.png"
+                  alt="Media Partner 1"
+                  class="medpart-logo"
+                />
+              </div>
+            </div>
+            <div class="col-6 col-md-3 col-lg-2">
+              <div class="medpart-card">
+                <img
+                  src="images/medpart2.png"
+                  alt="Media Partner 2"
+                  class="medpart-logo"
+                />
+              </div>
+            </div>
+            <div class="col-6 col-md-3 col-lg-2">
+              <div class="medpart-card">
+                <img
+                  src="images/medpart3.png"
+                  alt="Media Partner 3"
+                  class="medpart-logo"
+                />
+              </div>
+            </div>
+            <div class="col-6 col-md-3 col-lg-2">
+              <div class="medpart-card">
+                <img
+                  src="images/medpart4.png"
+                  alt="Media Partner 4"
+                  class="medpart-logo"
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="col-12 col-md-4">
-        <div class="contact-card">
-          <span class="contact-icon">✉️</span>
-          <h3>Email</h3>
-          <p>natalsvipb@gmail.com</p>
-          <a href="mailto:natalsvipb@gmail.com" class="btn btn-primary w-100">
-            <span>📧</span> Kirim Email
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
     <!-- Footer -->
     <footer>
@@ -1993,9 +2249,18 @@ nav.scrolled {
         <div class="footer-logo">🎄 Natal SV IPB 2026</div>
         <p style="margin: 1rem 0; opacity: 0.9">Sukacita Besar Telah Datang</p>
         <div class="footer-social">
-          <a href="https://instagram.com/natalsvipb" target="_blank">📷</a>
-          <a href="https://wa.me/6281234567890" target="_blank">💬</a>
-          <a href="mailto:natalsvipb@gmail.com">✉️</a>
+          <a href="https://instagram.com/natalsvipb" target="_blank"
+            ><img
+              src="images/Logo-Instagram.png"
+              alt="Logo-Instagram"
+              width="40px"
+          /></a>
+          <a href="https://wa.me/6281234567890" target="_blank"
+            ><img src="images/Logo-WA.png" alt="Logo-WA" width="40px"
+          /></a>
+          <a href="mailto:natalsvipb@gmail.com"
+            ><img src="images/Logo-Gmail.png" alt="Logo-Gmail" width="40px"
+          /></a>
         </div>
         <div class="footer-links">
           <a href="#home">Home</a>
