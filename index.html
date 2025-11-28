@@ -2332,7 +2332,8 @@
       // WISH TREE WITH GOOGLE SHEETS
       // ============================================
 
-      const FORM_ID = "1BfQqq4q1b2Uqgic7MXSw2c2aE4JkfyYpGJQqP6yJ95M";
+      const FORM_ID =
+        "1FAIpQLSd9IjISrpMmYP802a9TvoHbMINS6v8gkrweGb3fhP68Berhog";
       const ENTRY_NAME = "entry.956456023";
       const ENTRY_MESSAGE = "entry.539959860";
       const SHEET_CSV_URL =
@@ -2340,23 +2341,25 @@
 
       const FORM_ACTION = `https://docs.google.com/forms/d/e/${FORM_ID}/formResponse`;
 
-      // Load wishes from Google Sheets
+      // LOAD WISHES FROM GOOGLE SHEETS
       async function loadWishes() {
         const container = document.getElementById("wishesContainer");
         const emptyMsg = document.getElementById("emptyWishes");
 
         try {
-          const response = await fetch(SHEET_CSV_URL);
+          // Tambahkan timestamp untuk bypass cache
+          const cacheBuster = new Date().getTime();
+          const response = await fetch(`${SHEET_CSV_URL}&_=${cacheBuster}`);
           const csvText = await response.text();
 
-          // Parse CSV (skip header row)
-          const lines = csvText.split("\n").slice(1);
+          const lines = csvText.split("\n").slice(1); // Skip header
           const wishes = [];
 
           for (let line of lines) {
-            if (!line.trim()) continue;
+            line = line.trim();
+            if (!line) continue; // Skip empty lines
 
-            // Parse CSV with proper quote handling
+            // Parse CSV dengan handling quotes
             const columns = [];
             let current = "";
             let inQuotes = false;
@@ -2367,7 +2370,7 @@
 
               if (char === '"' && nextChar === '"') {
                 current += '"';
-                i++; // Skip next quote
+                i++;
               } else if (char === '"') {
                 inQuotes = !inQuotes;
               } else if (char === "," && !inQuotes) {
@@ -2377,21 +2380,44 @@
                 current += char;
               }
             }
-            columns.push(current.trim()); // Push last column
+            columns.push(current.trim());
 
+            // Harus ada minimal 3 kolom: Timestamp, Nama, Pesan
             if (columns.length >= 3) {
-              const timestamp = columns[0];
-              const name = columns[1];
-              const message = columns[2];
+              let timestamp = columns[0].replace(/^"|"$/g, "").trim();
+              let name = columns[1].replace(/^"|"$/g, "").trim();
+              let message = columns[2].replace(/^"|"$/g, "").trim();
+
+              // Skip jika nama atau pesan kosong
+              if (!name || !message) {
+                continue;
+              }
+
+              // Parse tanggal
+              let formattedDate = "Baru saja";
+              if (timestamp) {
+                try {
+                  // Google Sheets biasanya format: "12/31/2024 13:45:30"
+                  const date = new Date(timestamp);
+
+                  if (!isNaN(date.getTime())) {
+                    formattedDate = date.toLocaleDateString("id-ID", {
+                      day: "numeric",
+                      month: "long",
+                      year: "numeric",
+                      hour: "2-digit",
+                      minute: "2-digit",
+                    });
+                  }
+                } catch (e) {
+                  console.error("Error parsing date:", e);
+                }
+              }
 
               wishes.push({
                 name: name,
                 message: message,
-                date: new Date(timestamp).toLocaleDateString("id-ID", {
-                  day: "numeric",
-                  month: "long",
-                  year: "numeric",
-                }),
+                date: formattedDate,
               });
             }
           }
@@ -2399,11 +2425,14 @@
           displayWishes(wishes);
         } catch (error) {
           console.error("Error loading wishes:", error);
+          emptyMsg.style.display = "block";
+          container.style.display = "none";
           emptyMsg.innerHTML =
             "Gagal memuat harapan. Silakan refresh halaman. 🔄";
         }
       }
 
+      // DISPLAY WISHES
       function displayWishes(wishes) {
         const container = document.getElementById("wishesContainer");
         const emptyMsg = document.getElementById("emptyWishes");
@@ -2416,24 +2445,28 @@
         } else {
           container.style.display = "grid";
           emptyMsg.style.display = "none";
-          container.innerHTML = wishes
+
+          // Reverse untuk yang terbaru di atas
+          const wishCards = wishes
             .reverse()
             .map(
               (wish) => `
-        <div class="wish-card">
-          <div class="wish-header">
-            <span class="wish-name">✨ ${wish.name}</span>
-            <span class="wish-date">${wish.date}</span>
-          </div>
-          <p class="wish-message">"${wish.message}"</p>
+      <div class="wish-card">
+        <div class="wish-header">
+          <span class="wish-name">✨ ${wish.name}</span>
+          <span class="wish-date">${wish.date}</span>
         </div>
-      `
+        <p class="wish-message">"${wish.message}"</p>
+      </div>
+    `
             )
             .join("");
+
+          container.innerHTML = wishCards;
         }
       }
 
-      // Submit form to Google Forms
+      // SUBMIT FORM TO GOOGLE FORMS
       document
         .getElementById("wishForm")
         .addEventListener("submit", async (e) => {
@@ -2442,19 +2475,27 @@
           const submitBtn = e.target.querySelector('button[type="submit"]');
           const originalText = submitBtn.innerHTML;
 
-          // Disable button and show loading
+          // Disable button
           submitBtn.disabled = true;
           submitBtn.innerHTML = "<span>⏳</span> Mengirim...";
 
-          const name = document.getElementById("wishName").value;
-          const message = document.getElementById("wishMessage").value;
+          const name = document.getElementById("wishName").value.trim();
+          const message = document.getElementById("wishMessage").value.trim();
+
+          // Validasi
+          if (!name || !message) {
+            alert("❌ Nama dan pesan harus diisi!");
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = originalText;
+            return;
+          }
 
           const formData = new FormData();
           formData.append(ENTRY_NAME, name);
           formData.append(ENTRY_MESSAGE, message);
 
           try {
-            // Submit to Google Form (no-cors mode)
+            // Submit ke Google Form
             await fetch(FORM_ACTION, {
               method: "POST",
               body: formData,
@@ -2464,7 +2505,7 @@
             // Reset form
             document.getElementById("wishForm").reset();
 
-            // Show success message
+            // Success message
             submitBtn.innerHTML = "<span>✅</span> Terkirim!";
 
             setTimeout(() => {
@@ -2472,21 +2513,22 @@
               submitBtn.innerHTML = originalText;
             }, 2000);
 
-            // Show alert
             alert(
               "✨ Terima kasih! Harapan Anda telah terkirim.\n\nHarapan akan muncul dalam beberapa detik."
             );
 
-            // Reload wishes after 3 seconds
-            setTimeout(loadWishes, 3000);
+            // Reload wishes setelah 3 detik
+            setTimeout(() => {
+              loadWishes();
+            }, 3000);
 
-            // Scroll to wishes
+            // Scroll ke container wishes
             setTimeout(() => {
               document.getElementById("wishesContainer").scrollIntoView({
                 behavior: "smooth",
                 block: "nearest",
               });
-            }, 500);
+            }, 3500);
           } catch (error) {
             console.error("Error submitting wish:", error);
             alert("❌ Gagal mengirim harapan. Silakan coba lagi.");
@@ -2495,10 +2537,10 @@
           }
         });
 
-      // Load wishes on page load
+      // LOAD WISHES ON PAGE LOAD
       loadWishes();
 
-      // Auto refresh every 30 seconds
+      // AUTO REFRESH EVERY 30 SECONDS
       setInterval(loadWishes, 30000);
 
       // Smooth scroll for all anchor links (tetap ada)
